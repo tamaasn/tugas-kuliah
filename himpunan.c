@@ -57,6 +57,8 @@ int main(){
     int angka_ditemukan;
     for(int i=0;i<array_max;i++){
         for(int j=0;j<array_max;j++){
+            
+            // tambah ke array irisan ketika ada angka yang sama
             if (array1[i] == array2[j] && array1[i] != angka_ditemukan){
                 array_irisan[count] = array1[i];
                 count++;
@@ -64,6 +66,8 @@ int main(){
             }
         }
     }
+
+    // cetak output array irisan
     printf("\nArray irisan : {");
     for(int i=0;i<count;i++){
         printf("%d,",array_irisan[i]);
@@ -76,16 +80,19 @@ int main(){
         bool found=false;
         for(int j=0;j<array_max;j++){
             printf("%d = %d\n" , array1[i] , array2[j]);
+            // ketika array ada yang sama berarti tidak complement
             if (array1[i] == array2[j]){
                 found=true;
             }
         }
         if(!found){
+            // boolean found berfungsi untuk mengecek apakah complement atau tidak. jika tidak angka dimasukkan ke array complement
             array_complement[count] = array1[i];
             count++;
         }
     }
 
+    // cetak output array complement
     printf("Complement dari himpunan array1 :{");
     for(int i=0;i<count;i++){
         printf("%d," , array_complement[i]);
